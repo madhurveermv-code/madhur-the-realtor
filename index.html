@@ -73,7 +73,12 @@
       "@type": "RealEstateListing", "name": "Land Parcel, Jagjeet Nagar (On Road)",
       "description": "6 Biswa land parcel directly on the road in Jagjeet Nagar.",
       "url": "https://madhurtherealtor.com/#listings",
-      "offers": { "@type": "Offer", "price": "6000000", "priceCurrency": "INR" } } }
+      "offers": { "@type": "Offer", "price": "6000000", "priceCurrency": "INR" } } },
+    { "@type": "ListItem", "position": 8, "item": {
+      "@type": "RealEstateListing", "name": "42 Bigha Panoramic Land Parcel, Parwanoo",
+      "description": "42 Bigha land parcel in Taksal, Parwanoo, at roughly 5,000 ft with panoramic valley views, suited to resort, tourism or housing development.",
+      "url": "https://madhurtherealtor.com/#listings",
+      "offers": { "@type": "Offer", "price": "315000000", "priceCurrency": "INR" } } }
   ]
 }
 </script>
@@ -181,6 +186,13 @@ input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px;}
 .upi-box{margin-top:18px;padding-top:16px;border-top:1px dashed var(--form-field-line);}
 .upi-box p{font-size:13px;line-height:1.6;color:var(--form-sub);}
 
+.mode-tabs{display:flex;gap:10px;margin-bottom:22px;}
+.mode-tab{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;padding:10px 18px;border-radius:3px;border:1px solid var(--form-field-line);background:transparent;color:var(--form-sub);cursor:pointer;}
+.mode-tab.active{background:var(--gold);color:#1a1205;border-color:var(--gold);}
+textarea{font-family:'Work Sans',sans-serif;font-size:15px;padding:12px 13px;border-radius:3px;border:1px solid var(--form-field-line);background:var(--form-field-bg);color:var(--stone);resize:vertical;min-height:80px;}
+textarea::placeholder{color:var(--form-sub)}
+textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+
 footer{padding:30px 0 40px;}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--mist);font-size:13px;}
 [hidden]{display:none!important}
@@ -203,7 +215,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
   <div class="wrap">
     <h1>Your next vacation home, or your next investment, in the Kasauli hills.</h1>
     <p class="lede">Handpicked land, cottages and villas, personally verified before they reach you. Including Naina Tikkar, Kumarhatti-Nahan Road and Barog, where fresh inventory is easier to find than in main Kasauli town.</p>
-    <a class="cta" href="#enquire">Tell us what you're looking for</a>
+    <a class="cta" href="#enquire" onclick="window.__kasauliSetMode && window.__kasauliSetMode('buy')">Tell us what you're looking for</a>
+    <div style="margin-top:14px;">
+      <a href="#enquire" onclick="window.__kasauliSetMode && window.__kasauliSetMode('sell')" style="font-size:14px;color:var(--mist);text-decoration:underline;">Looking to sell a property in Kasauli instead?</a>
+    </div>
   </div>
 </section>
 
@@ -236,6 +251,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 
 <section class="form-section" id="enquire">
   <div class="wrap">
+    <div class="mode-tabs">
+      <button type="button" class="mode-tab active" id="tabBuy">I want to buy</button>
+      <button type="button" class="mode-tab" id="tabSell">I want to sell</button>
+    </div>
+
+    <div id="buyFormWrap">
     <h2>Tell us what you're looking for</h2>
     <p class="sub">A few quick questions so we point you to the right property, not a random list. Takes under a minute.</p>
 
@@ -318,6 +339,60 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
         <button type="submit" class="cta">Send enquiry on WhatsApp</button>
       </div>
     </form>
+    </div>
+
+    <div id="sellFormWrap" hidden>
+      <h2>Thinking of selling in Kasauli?</h2>
+      <p class="sub">Share a few details and we'll get back to you about listing it, verifying the papers, and finding the right buyer. Takes under a minute.</p>
+
+      <form id="sellForm">
+        <div class="field">
+          <label for="sellName">Your name</label>
+          <input id="sellName" name="name" type="text" placeholder="Your full name" required>
+        </div>
+        <div class="field">
+          <label for="sellWhatsapp">WhatsApp number</label>
+          <input id="sellWhatsapp" name="whatsapp" type="tel" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="sellType">Property type</label>
+            <select id="sellType" name="type" required>
+              <option value="">Select one</option>
+              <option>Land parcel</option>
+              <option>Cottage</option>
+              <option>Villa</option>
+              <option>Hotel / hospitality property</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sellLocation">Location / area</label>
+            <input id="sellLocation" name="location" type="text" placeholder="e.g. Naina Tikkar, Dochi" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="sellSize">Approx. size</label>
+            <input id="sellSize" name="size" type="text" placeholder="e.g. 10 Biswa, 2 Bigha">
+          </div>
+          <div class="field">
+            <label for="sellPrice">Expected price</label>
+            <input id="sellPrice" name="price" type="text" placeholder="Your asking price, if decided">
+          </div>
+        </div>
+        <div class="field">
+          <label for="sellDetails">Anything else worth knowing</label>
+          <textarea id="sellDetails" name="details" placeholder="Ownership papers in order? Any existing construction? Road access? etc."></textarea>
+        </div>
+
+        <div class="fee-note">We personally verify ownership and papers before listing anything, this protects both you and the buyer. No fee to list, brokerage is only due once a sale closes.</div>
+
+        <div class="submit-row">
+          <button type="submit" class="cta">Send details on WhatsApp</button>
+        </div>
+      </form>
+    </div>
 
     <div class="confirm" id="confirmBox">
       <h3>Ready to send</h3>
@@ -393,6 +468,27 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  // ---- Buy / Sell tab switching ----
+  var tabBuy = document.getElementById('tabBuy');
+  var tabSell = document.getElementById('tabSell');
+  var buyFormWrap = document.getElementById('buyFormWrap');
+  var sellFormWrap = document.getElementById('sellFormWrap');
+  var confirmBoxEl = document.getElementById('confirmBox');
+
+  function setMode(mode){
+    if (mode === 'sell'){
+      tabSell.classList.add('active'); tabBuy.classList.remove('active');
+      sellFormWrap.hidden = false; buyFormWrap.hidden = true;
+    } else {
+      tabBuy.classList.add('active'); tabSell.classList.remove('active');
+      buyFormWrap.hidden = false; sellFormWrap.hidden = true;
+    }
+    confirmBoxEl.classList.remove('show');
+  }
+  tabBuy.addEventListener('click', function(){ setMode('buy'); });
+  tabSell.addEventListener('click', function(){ setMode('sell'); });
+  window.__kasauliSetMode = setMode;
+
   var form = document.getElementById('enquiryForm');
   var confirmBox = document.getElementById('confirmBox');
   var waLink = document.getElementById('waLink');
@@ -430,6 +526,29 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     } else {
       upiBox.hidden = true;
     }
+
+    confirmBox.classList.add('show');
+    confirmBox.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  var sellForm = document.getElementById('sellForm');
+  sellForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fd = new FormData(sellForm);
+    var name = fd.get('name'), whatsapp = fd.get('whatsapp'), type = fd.get('type'),
+        location = fd.get('location'), size = fd.get('size'), price = fd.get('price'),
+        details = fd.get('details');
+
+    lastMessage = "Hi, I'm " + name + " (" + whatsapp + "). I'd like to sell a property via your site:\n" +
+      "- Type: " + type + "\n" +
+      "- Location: " + location + "\n" +
+      (size ? "- Approx. size: " + size + "\n" : "") +
+      (price ? "- Expected price: " + price + "\n" : "") +
+      (details ? "- Details: " + details : "");
+
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lastMessage);
+    waLink.setAttribute('href', url);
+    upiBox.hidden = true;
 
     confirmBox.classList.add('show');
     confirmBox.scrollIntoView({behavior:'smooth', block:'center'});

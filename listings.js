@@ -86,5 +86,15 @@ window.LISTINGS = [
     description: "A smaller, 6 biswa parcel directly on the road in Jagjeet Nagar, a lower entry point into the same belt as the larger Jagjeet Nagar parcel.",
     status: "Available, site visit on request",
     image: null
+  },
+  {
+    tag: "Land parcel",
+    title: "42 Bigha Panoramic Land Parcel, Parwanoo",
+    location: "Taksal, Parwanoo",
+    size: "42 Bigha",
+    price: "₹31.50 crore",
+    description: "A large-format 42 bigha land parcel in Taksal, Parwanoo, sitting at roughly 5,000 ft with panoramic, uninterrupted views across the valley. Suited to a resort, tourism project, or a larger housing development given its scale.",
+    status: "Available, site visit on request",
+    image: null
   }
 ];
