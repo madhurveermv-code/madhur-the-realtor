@@ -15,6 +15,8 @@
     image        Path to the photo, e.g. "images/naina-tikkar.jpg" — drop the matching file into
                  an "images" folder next to this one. Leave as null if you don't have a photo yet;
                  the card will show a "Photo coming soon" placeholder instead of a broken image.
+    isNew        Optional. Set to true to show a "New" badge on the card. Remove this field
+                 (or set to false) once the listing isn't new anymore, usually after 2-3 weeks.
 */
 window.LISTINGS = [
   {
@@ -96,5 +98,60 @@ window.LISTINGS = [
     description: "A large-format 42 bigha land parcel in Taksal, Parwanoo, sitting at roughly 5,000 ft with panoramic, uninterrupted views across the valley. Suited to a resort, tourism project, or a larger housing development given its scale.",
     status: "Available, site visit on request",
     image: null
+  },
+  {
+    tag: "Cottage",
+    title: "6-Bedroom Cottage, Kimughat, Garkhal",
+    location: "Kimughat, Garkhal, Kasauli",
+    size: "10 Biswa",
+    price: "₹4.50 crore",
+    description: "A spacious 6-bedroom cottage in Kimughat, Garkhal, with a lawn and open parking. Suited to a large family holiday home or a short-term rental operation with several rooms to let.",
+    status: "Available, site visit on request",
+    image: "images/cottage-kimughat-garkhal.jpg",
+    isNew: true
+  },
+  {
+    tag: "Cottage",
+    title: "4-Bedroom Cottage, Gated Society, Chabbal",
+    location: "Chabbal, Kasauli",
+    size: "10 Biswa (500 Gaj)",
+    price: "₹7 crore",
+    description: "A fully finished 4-bedroom cottage with a staff room in a gated society in Chabbal, a short drive downhill from Garkhal. Has a small swimming pool, lawn, 24-hour water and electricity, power backup, and a Kasauli view.",
+    status: "Available, site visit on request. Photos on request, video available.",
+    image: null,
+    isNew: true
+  },
+  {
+    tag: "Land parcel",
+    title: "Land Parcel, Dharampur-Subathu Road",
+    location: "Dharampur-Subathu Road",
+    size: "12 Bigha",
+    price: "₹55 lakh per bigha",
+    description: "A 12 bigha land parcel on the Dharampur-Subathu road, non-TCP, with direct road access.",
+    status: "Available, site visit on request",
+    image: "images/land-dharampur-subathu.jpg",
+    isNew: true
+  },
+  {
+    tag: "Land parcel",
+    title: "20 Bigha Land Parcel, Village Kanger",
+    location: "Village Kanger, 5 km from Dilman-MMU Road",
+    size: "20 Bigha",
+    price: "₹35 lakh per bigha",
+    description: "A 20 bigha land parcel in Village Kanger, non-TCP and non-MC, with a wide valley view and a gradual slope. Its scale and location make it well suited to a resort or a small housing/villa development.",
+    status: "Available, site visit on request",
+    image: "images/land-kanger.png",
+    isNew: true
+  },
+  {
+    tag: "Land parcel",
+    title: "10 Bigha Land Parcel, Kaba Kalan",
+    location: "Kaba Kalan, next to Cassia Resorts",
+    size: "10 Bigha",
+    price: "₹1 crore per bigha",
+    description: "A 10 bigha land parcel in Kaba Kalan, non-TCP and non-MC, directly on the road and right next to Cassia Resorts, with a strong valley view.",
+    status: "Available, site visit on request",
+    image: "images/land-kaba-kalan.png",
+    isNew: true
   }
 ];
