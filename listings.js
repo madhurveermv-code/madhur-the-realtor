@@ -153,5 +153,16 @@ window.LISTINGS = [
     status: "Available, site visit on request",
     image: "images/land-kaba-kalan.png",
     isNew: true
+  },
+  {
+    tag: "Land parcel",
+    title: "1 Bigha 4 Biswa Land Parcel, Barog, Solan",
+    location: "Near Barog, Solan district, 2 km from Deodghat",
+    size: "1 Bigha 4 Biswa",
+    price: "₹1.50 crore",
+    description: "A 1 bigha 4 biswa parcel near Barog, 2 km from Deodghat, with clear title and Section 118 permission already approved and easily transferable. Suited to an independent villa or cottage. The approved 118 status makes this a quicker, more straightforward purchase for a non-Himachali buyer than most parcels in the belt.",
+    status: "Available, site visit on request",
+    image: "images/land-barog-solan.jpg",
+    isNew: true
   }
 ];
